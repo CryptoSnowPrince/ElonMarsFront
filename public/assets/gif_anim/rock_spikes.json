@@ -1,0 +1,755 @@
+{
+	"textures": [
+		{
+			"image": "rock_spikes.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 3225,
+				"h": 875
+			},
+			"scale": 0.5,
+			"frames": [
+				{
+					"filename": "rock_spikes0001.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0002.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 645,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0003.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 1290,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0004.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 1935,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0005.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 2580,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0006.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 0,
+						"y": 125,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0007.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 645,
+						"y": 125,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0008.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 1290,
+						"y": 125,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0009.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 1935,
+						"y": 125,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0010.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 2580,
+						"y": 125,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0011.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 0,
+						"y": 250,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0012.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 645,
+						"y": 250,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0013.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 1290,
+						"y": 250,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0014.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 1935,
+						"y": 250,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0015.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 2580,
+						"y": 250,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0016.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 0,
+						"y": 375,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0017.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 645,
+						"y": 375,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0018.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 1290,
+						"y": 375,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0019.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 1935,
+						"y": 375,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0020.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 2580,
+						"y": 375,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0021.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 0,
+						"y": 500,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0022.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 645,
+						"y": 500,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0023.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 1290,
+						"y": 500,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0024.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 1935,
+						"y": 500,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0025.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 2580,
+						"y": 500,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0026.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 0,
+						"y": 625,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0027.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 645,
+						"y": 625,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0028.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 1290,
+						"y": 625,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0029.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 1935,
+						"y": 625,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0030.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 2580,
+						"y": 625,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0031.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 0,
+						"y": 750,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0032.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 645,
+						"y": 750,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0033.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 1290,
+						"y": 750,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0034.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 1935,
+						"y": 750,
+						"w": 645,
+						"h": 125
+					}
+				},
+				{
+					"filename": "rock_spikes0035.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 645,
+						"h": 125
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 645,
+						"h": 125
+					},
+					"frame": {
+						"x": 2580,
+						"y": 750,
+						"w": 645,
+						"h": 125
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:60a8ab515a02b3c7780c7cf439b7d853:fc480cd74092bfac9fa9b00aa8de0396:2ec41ad79c6a328ba02d0a0f07f75347$"
+	}
+}

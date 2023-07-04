@@ -1,0 +1,61 @@
+.item:hover{
+    -webkit-filter: drop-shadow(1px 1px 0 white)
+                    drop-shadow(-1px -1px 0 white);
+    filter: drop-shadow(1px 1px 0 white) 
+            drop-shadow(-1px -1px 0 white);
+}
+
+.active{
+    -webkit-filter: drop-shadow(1px 1px 0.75rem white)
+                    drop-shadow(-1px -1px 0.75rem white);
+    filter: drop-shadow(1px 1px 0.75rem white) 
+            drop-shadow(-1px -1px 0.75rem white);
+
+}
+
+
+.loginbg{
+    background: url("../../images/login_mask.png");
+
+    
+    min-height: 100vh;
+    height: 100%;
+
+    video {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        object-fit: cover; /* Make the video fill the container and maintain aspect ratio */
+
+        min-width: 100%;
+        min-height: 100%;
+
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.link{
+    text-decoration: none;
+    width: 100%;
+    text-align: left;
+}
+
+.icon_buttons{
+    display: flex;
+    align-items: center;
+    img{
+        width: 30px;
+        height: max-content;
+        margin-right: 10px;
+    }
+}
+
+.button_group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scale: 1.5;
+}

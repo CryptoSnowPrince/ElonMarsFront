@@ -1,0 +1,168 @@
+
+.container{
+    background: url("../../../images/pvp-background.png") no-repeat;
+    // background-color: white;
+    background-size: 100% 100%;
+
+    min-height: 100vh;
+    height: 100%;
+
+    padding: 0;
+    // padding-top: 60px;
+    width: 100%;
+
+    h2{
+        text-align: center;
+        color: white;
+        font-size: 70px;
+        margin: 0;
+        position: relative;
+        z-index: 10;
+
+        color: white;
+        text-shadow: 0 1px 0 #ccc,
+                    0 2px 0 #c9c9c9,
+                    0 3px 0 #bbb,
+                    0 4px 0 #b9b9b9,
+                    0 5px 0 #aaa,
+                    0 6px 1px rgba(0,0,0,.1),
+                    0 0 5px rgba(0,0,0,.1),
+                    0 1px 3px rgba(0,0,0,.3),
+                    0 3px 5px rgba(0,0,0,.2),
+                    0 5px 10px rgba(0,0,0,.25),
+                    0 10px 10px rgba(0,0,0,.2),
+                    0 20px 20px rgba(0,0,0,.15);
+    }
+
+    h3{
+        color: white;
+        font-size: 40px;
+        position: relative;
+        z-index: 10;
+        margin: 0;
+
+    }
+
+    canvas{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.player1{
+    position: absolute;
+    bottom: 60px;
+    left: 60px;
+    width: 300px;
+}
+
+.unit1{
+    position: absolute;
+    bottom: 60px;
+    left: 300px;
+    width: 200px;
+}
+
+.explode_player_1{
+    width:100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 0;
+}
+
+.explode_unit_1{
+    width:100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 0;
+}
+
+.player2{
+    position: absolute;
+    bottom: 60px;
+    right: 60px;
+    width: 300px;
+
+    h2{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.waiting_label{
+    position: absolute;
+    bottom: 360px;
+    right: 60px;
+    width: 300px;
+
+    h2{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.unit2{
+    position: absolute;
+    bottom: 60px;
+    right: 300px;
+    width: 200px;
+}
+
+.explode_player_2{
+    width:100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 0;
+}
+
+.explode_unit_2{
+    width:100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 0;
+}
+
+.cardview{
+    position: relative;
+    z-index: 10;
+}
+
+.pvpAttackCard {
+    margin: 10px;
+}
+
+.pvpAttackCard:hover{
+    filter: drop-shadow(3px 3px 0 white) drop-shadow(-3px -3px 0 white);
+}
+
+
+.unit1_explode{
+    
+    position: absolute;
+    bottom: 60px;
+    right: 200px;
+    width: 350px;
+
+    img{
+        width: 100%;        
+    }
+}
+.unit2_explode{
+    position: absolute;
+    bottom: 60px;
+    left: 200px;
+    width: 350px;
+
+    img{
+        width: 100%;             
+    }
+}

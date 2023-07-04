@@ -1,0 +1,79 @@
+@import '../../variables.scss';
+
+.networkItem{
+    display: flex;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    margin: 0px;
+    min-width: 0px;
+    width: 100%;
+    padding: 4px 20px;
+    height: 56px;
+    grid-template-columns: auto minmax(auto, 1fr) auto minmax(0px, 72px);
+    gap: 16px;
+    cursor: pointer;
+    opacity: 1;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    color: white;
+
+    img{
+        width: 100%;
+    }
+
+    border-bottom: 1px solid rgb(182, 182, 182);
+}
+
+.networkItem:hover{
+    background-color: rgb(21, 26, 47);
+}
+
+.info{
+    display: flex;
+    align-items: center;
+}
+
+.icon{
+    width: 46px;
+    margin-right: 10px;
+
+    img{
+        background-color: white;
+        border-radius: 24px;
+        width: 100%;
+    }
+}
+
+.dot{
+    height: 8px;
+    width: 8px;
+    margin-right: 8px;
+    background-color: rgb(39, 174, 96);
+    border-radius: 50%;
+}
+
+.chain{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    color: rgb(151, 157, 172);
+    font-size: 1rem;
+    font-family: Manrope;
+    font-weight: 500;
+}
+
+.setting{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+
+.setting_icon{
+    width: 17px;
+    margin-right: 10px;
+}

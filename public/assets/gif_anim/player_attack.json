@@ -1,0 +1,209 @@
+{
+	"textures": [
+		{
+			"image": "player_attack.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 1950,
+				"h": 1950
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "cosmo_shoot0001.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 650,
+						"h": 650
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 650,
+						"h": 650
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 650,
+						"h": 650
+					}
+				},
+				{
+					"filename": "cosmo_shoot0009.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 650,
+						"h": 650
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 650,
+						"h": 650
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 650,
+						"h": 650
+					}
+				},
+				{
+					"filename": "cosmo_shoot0002.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 650,
+						"h": 650
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 650,
+						"h": 650
+					},
+					"frame": {
+						"x": 650,
+						"y": 0,
+						"w": 650,
+						"h": 650
+					}
+				},
+				{
+					"filename": "cosmo_shoot0003.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 650,
+						"h": 650
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 650,
+						"h": 650
+					},
+					"frame": {
+						"x": 1300,
+						"y": 0,
+						"w": 650,
+						"h": 650
+					}
+				},
+				{
+					"filename": "cosmo_shoot0004.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 650,
+						"h": 650
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 650,
+						"h": 650
+					},
+					"frame": {
+						"x": 0,
+						"y": 650,
+						"w": 650,
+						"h": 650
+					}
+				},
+				{
+					"filename": "cosmo_shoot0005.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 650,
+						"h": 650
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 650,
+						"h": 650
+					},
+					"frame": {
+						"x": 650,
+						"y": 650,
+						"w": 650,
+						"h": 650
+					}
+				},
+				{
+					"filename": "cosmo_shoot0006.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 650,
+						"h": 650
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 650,
+						"h": 650
+					},
+					"frame": {
+						"x": 1300,
+						"y": 650,
+						"w": 650,
+						"h": 650
+					}
+				},
+				{
+					"filename": "cosmo_shoot0007.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 650,
+						"h": 650
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 650,
+						"h": 650
+					},
+					"frame": {
+						"x": 0,
+						"y": 1300,
+						"w": 650,
+						"h": 650
+					}
+				},
+				{
+					"filename": "cosmo_shoot0008.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 650,
+						"h": 650
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 650,
+						"h": 650
+					},
+					"frame": {
+						"x": 650,
+						"y": 1300,
+						"w": 650,
+						"h": 650
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:53f9351f7ed0f4228c13b47ef48d3544:fc3e39151128fe1778d55a9e9067381c:ffd3da2af0b9954f007399821bc9aa09$"
+	}
+}

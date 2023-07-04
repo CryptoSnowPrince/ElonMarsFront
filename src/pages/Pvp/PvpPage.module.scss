@@ -1,0 +1,24 @@
+
+.container{
+    background: url("../../images/pvp-background.png") no-repeat;
+    background-size: 100% 100%;
+
+    min-height: 100vh;
+    height: 100%;
+
+    padding: 60px;
+}
+
+.player1{
+    position: absolute;
+    bottom: 60px;
+    left: 60px;
+    width: 200px;
+}
+
+.player2{
+    position: absolute;
+    bottom: 60px;
+    right: 60px;
+    width: 200px;
+}

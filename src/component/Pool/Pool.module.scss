@@ -1,0 +1,58 @@
+@import '../../variables.scss';
+
+.pool{
+  
+  display: flex;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  
+  background-color: #012420;
+  border-radius: 0.5625rem;
+  padding: 8px 16px;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  white-space: nowrap;
+
+  font-family: Manrope, sans-serif !important;
+}
+
+.item{
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: rgb(255, 255, 255);
+
+
+  img{
+    width: 1rem;
+    height: 1rem;
+    min-width: 1rem;
+    min-height: 1rem;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: white;
+    border-radius: 1rem;
+  }
+}
+
+.cont{
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+@media (max-width: 1180px) {
+
+  .item{
+    width: 100%;
+    margin-top: 5px;
+  }
+  
+ 
+}
