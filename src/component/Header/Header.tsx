@@ -19,6 +19,7 @@ import EggIcon from '@mui/icons-material/Egg';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import WidgetsIcon from '@mui/icons-material/Widgets';
 import PreniumModal from "../Modal/PremiumModal";
+import config from "../../utils/config";
 
 interface HeaderProps{
   showAccount : any;
@@ -29,7 +30,18 @@ const Header = ({showAccount, setShowAccount}:HeaderProps) => {
 
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const ref = searchParams.get('ref'); 
+  const newReferral = searchParams.get('ref'); 
+  useEffect(() => {
+    const referral = window.localStorage.getItem("REFERRAL")
+
+    if (!referral) {
+      if (newReferral) {
+        window.localStorage.setItem("REFERRAL", newReferral);
+      } else {
+        window.localStorage.setItem("REFERRAL", config.ADMIN_ACCOUNT);
+      }
+    }
+  }, [newReferral])
 
   const dispatch = useDispatch<any>();
   const userModule = useSelector((state:any) => state.userModule); 
@@ -51,8 +63,10 @@ const Header = ({showAccount, setShowAccount}:HeaderProps) => {
   useEffect(()=>{
     
     if(connected && address != "") {
+      let referrer = window.localStorage.getItem("REFERRAL");
+      referrer = referrer ? referrer : config.ADMIN_ACCOUNT
       setShow(true);
-      dispatch(getResources(address, ref, (res:any)=>{
+      dispatch(getResources(address, referrer, (res:any)=>{
 
         if(!res.success) {
           dispatch(onShowAlert(res.message, "info"));
