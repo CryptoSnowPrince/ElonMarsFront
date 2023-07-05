@@ -53,7 +53,7 @@ const HeaderModal = ({openAccount, setOpenAccount}:Props) => {
     e.preventDefault();
     if(e && e.stopPropagation) e.stopPropagation(); 
 
-    navigator.clipboard.writeText(config.server+"/?ref="+user.userRef);
+    navigator.clipboard.writeText(config.websiteURL+"/?ref="+user.userRef);
     setCopiedRef(true);
 
     setTimeout(()=>{
