@@ -3,7 +3,7 @@ const config = {
     // server: 'http://localhost', // Test
     websiteURL: "https://play.elonmars.io",
     server: 'https://api.play.elonmars.io',
-    port: '8443',
+    port: '',
     baseURL: '/api/v1',
     appID: 'elonmars-game',
     agentUID: 'elonmars',
