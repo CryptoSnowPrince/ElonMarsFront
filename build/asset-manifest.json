@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7e325b8f.css",
+    "main.js": "/static/js/main.5960a125.js",
+    "static/js/27.53288251.chunk.js": "/static/js/27.53288251.chunk.js",
+    "static/media/login_mask.png": "/static/media/login_mask.ccec7a7946f5164a86ab.png",
+    "static/media/background.png": "/static/media/background.91b311946aac03bc41ce.png",
+    "static/media/pvp-background.png": "/static/media/pvp-background.5f75197967de507924e6.png",
+    "index.html": "/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.7e325b8f.css",
+    "static/js/main.5960a125.js"
+  ]
+}
