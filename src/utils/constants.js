@@ -39,4 +39,4 @@ export const getUnitDamage = (type) => {
     return {damage: damage, isBattle: isBattle};
 }
 
-export const IS_TEST_MODE = true;
+export const IS_TEST_MODE = false;
