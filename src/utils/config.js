@@ -8,7 +8,7 @@ const config = {
     baseURL: '/api/v1',
     appID: 'elonmars-game',
     agentUID: 'elonmars',
-    ADMIN_ACCOUNT: 'XrMV8XeFvoSqb',
+    ADMIN_ACCOUNT: 'XrMV8XeFvoSqb',  // Old Ref
 }
 
 export default config

@@ -39,4 +39,4 @@ export const getUnitDamage = (type) => {
     return {damage: damage, isBattle: isBattle};
 }
 
-export const IS_TEST_MODE = false;
+export const IS_TEST_MODE = false; // if Test, the value is "true", it Main, the value is "false".
