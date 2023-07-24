@@ -91,8 +91,10 @@ const BuyNftModal = ({ open, setOpen }) => {
         const web3 = new Web3(window.ethereum);
         var tokenContract = new web3.eth.Contract(BUSD_ABI, BUSD_CONTRACT_ADDRESS[chainID]);
 
+        const busdAmount = Number(nftAmount) * config.price[open];
+        const busdAmountRaw = web3.utils.toWei(busdAmount.toString(), 'ether');
         dispatch(onShowAlert("Pease wait while confirming", "info"));
-        let transaction = await tokenContract.methods.approve(NFT_CONTRACT_ADDRESS[chainID], '10000000000000000000').send({
+        let transaction = await tokenContract.methods.approve(NFT_CONTRACT_ADDRESS[chainID], busdAmountRaw).send({
           from: address
         });
 
