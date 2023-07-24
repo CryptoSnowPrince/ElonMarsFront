@@ -20,7 +20,7 @@ import PvpRoom from './component/Pvp/PvpRoom/PvpRoom';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import Login from './pages/Login/Login';
-
+import NftPage from './pages/Nft/NftPage';
 
 
 function App() {
@@ -46,6 +46,7 @@ function App() {
               <Route path="/main" element={<Main showAccount={showAccount} setShowAccount={setShowAccount}/>} />
               <Route path="/map2" element={<Map2 showAccount={showAccount} setShowAccount={setShowAccount}/>} />
               <Route path="/pvp" element={<PvpPage showAccount={showAccount} setShowAccount={setShowAccount}/>} />
+              <Route path="/nft" element={<NftPage showAccount={showAccount} setShowAccount={setShowAccount}/>} />
             </Routes>
         </BrowserRouter>
       </div>

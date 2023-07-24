@@ -1,14 +1,14 @@
 @import '../../variables.scss';
 
 
-header{
+header {
   height: 70px;
   width: 100%;
   // box-shadow: rgb(5 6 13 / 24%) 7px 2px 26px 0px;
   // background: #012420;
 }
 
-.contents{
+.contents {
   height: 70px;
   display: flex;
   align-items: center;
@@ -20,11 +20,11 @@ header{
   // justify-content: center;
 }
 
-.gbaks{
-  color:white;
+.gbaks {
+  color: white;
 }
 
-.resource{
+.resource {
   margin-left: 2px;
   margin-right: 2px;
   height: 29px;
@@ -39,15 +39,15 @@ header{
   align-items: center;
 }
 
-.wallet{
+.wallet {
   display: flex;
 }
 
-.logo img{
+.logo img {
   height: 42px;
 }
 
-.chain{
+.chain {
   box-sizing: border-box;
   cursor: pointer;
   margin: 0px;
@@ -66,7 +66,7 @@ header{
   color: rgb(255, 255, 255);
   height: 40px;
 
-  img{
+  img {
     width: 20px;
     height: 20px;
     min-width: 20px;
@@ -77,10 +77,11 @@ header{
     border-radius: 20px;
     margin-right: 10px;
   }
+
   margin-right: 10px;
 }
 
-.connectwallet{
+.connectwallet {
   min-width: 120px;
   max-width: 320px;
   text-align: center;
@@ -106,7 +107,7 @@ header{
   color: white;
 }
 
-.detail{
+.detail {
   display: flex;
   flex-direction: row;
   -webkit-box-align: center;
@@ -117,16 +118,16 @@ header{
   cursor: pointer;
   color: white;
 
-  .balance{
+  .balance {
     box-sizing: border-box;
     margin: 0px;
-    
+
     padding-left: 0.75rem;
     padding-right: 0.5rem;
     font-weight: 500;
   }
 
-  .address{
+  .address {
     max-width: 320px;
     text-align: center;
     outline: none;
@@ -155,7 +156,7 @@ header{
       margin-right: 0.5rem;
     }
 
-    span{
+    span {
       display: flex;
       align-items: center;
     }
@@ -170,7 +171,7 @@ header{
   transform: translate(-50%, -50%);
   max-width: 420px;
   background-color: black;
-  
+
   box-shadow: 24px;
   padding: 4px;
 
@@ -184,41 +185,43 @@ header{
   max-width: 420px;
   min-width: 280px;
   color: white;
-  
+
   border-radius: 20px;
 
-    
-  .header{
+
+  .header {
     height: 40px;
     display: flex;
     justify-content: space-between;
     padding: 20px 20px 0px;
   }
 
-  .title{
+  .title {
     display: flex;
     color: white;
   }
 
-  .close{
+  .close {
     width: 24px;
     cursor: pointer;
-    img{
+
+    img {
       width: 100%;
     }
   }
-  .input{
+
+  .input {
     padding: 0px 20px 12px;
     display: flex;
   }
 
-  .hr{
+  .hr {
     width: 100%;
     height: 1px;
     background-color: rgb(21, 26, 47);
   }
 
-  .modalContents{
+  .modalContents {
     display: block;
     padding: 1rem;
     border: 1px solid rgb(64, 68, 79);
@@ -234,7 +237,8 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    button{
+
+    button {
       height: 54px;
       max-width: 320px;
       text-align: center;
@@ -261,43 +265,75 @@ header{
     }
   }
 
-  .copyAddress{
+  .copyAddress {
     display: flex;
     align-items: center;
     cursor: pointer;
   }
 
-  .copyAddress:hover{
+  .copyAddress:hover {
     opacity: 0.9;
   }
 
-  .viewOnExplorer{
-    display:flex;
-    align-items:center;
-    color:white;
+  .viewOnExplorer {
+    display: flex;
+    align-items: center;
+    color: white;
     text-decoration: none;
   }
 
-  .viewOnExplorer:hover{
+  .viewOnExplorer:hover {
     text-decoration: underline;
 
   }
-};
+}
+
+;
 
 @keyframes pvpbuttonAnim {
-  from {left: -55px;}
-  to {left: 110%;}
+  from {
+    left: -55px;
+  }
+
+  to {
+    left: 110%;
+  }
 }
 
 .pvp_button {
-  overflow: hidden; 
+  overflow: hidden;
 }
 
-.pvp_button:hover{
+.pvp_button:hover {
   font-weight: bold;
 }
 
-.pvp_button:before{
+.pvp_button:before {
+  content: "";
+  position: absolute;
+  height: 150px;
+  width: 14px;
+  background: #ffffff;
+  left: -55px;
+  top: -40px;
+  transform: rotate(45deg);
+  transition: all .3s;
+  opacity: 0.4;
+
+  animation-name: pvpbuttonAnim;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.nft_button {
+  overflow: hidden;
+}
+
+.nft_button:hover {
+  font-weight: bold;
+}
+
+.nft_button:before {
   content: "";
   position: absolute;
   height: 150px;

@@ -167,6 +167,17 @@ const Header = ({showAccount, setShowAccount}:HeaderProps) => {
               P v P 
           </Button>
 
+          <Button 
+            className={styles.nft_button}
+            style={{marginLeft:"5px"}}
+            variant="contained" 
+            color='secondary' 
+            sx={{zIndex:1}} 
+            onClick={(e)=>{navigate("/nft");}}
+          >
+              NFT 
+          </Button>
+
         </Box>
         
       </Box>
