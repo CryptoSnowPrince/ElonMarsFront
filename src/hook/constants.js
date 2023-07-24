@@ -1,4 +1,5 @@
-export const chainId = 56;
+export const chainId = 56; // Main
+// export const chainId = 97; // Test
 // export const PREMIUM_COST = 0.01;
 // export const LAND_COST = 0.01;
 
@@ -40,7 +41,7 @@ export const MINING_TIMER = 24 * 60 * 60;
 
 export const RPC_URL = {
     56: "https://bsc-dataseed1.binance.org:443",
-    97: "https://data-seed-prebsc-1-s3.binance.org:8545/",
+    97: "https://data-seed-prebsc-1-s3.binance.org:8545/"
 };
 
 export const NETWORK_NAMES = {
@@ -54,8 +55,19 @@ export const ADMIN_WALLET_ADDRESS = {
 };
 
 export const BUSD_CONTRACT_ADDRESS = {
-    56: "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+    // 56: "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56", // Main
+    56: "0xF79f289F3d5Ab752D57666B96Cb3BD57b0E3C6F3", // Test
     97: "0xaB1a4d4f1D656d2450692D237fdD6C7f9146e814",
+};
+
+export const NFT_CONTRACT_ADDRESS = {
+    56: "0x38AcAA98Db174cEE218A33635322C19cC1155d20", // Test
+    97: "0x38AcAA98Db174cEE218A33635322C19cC1155d20", // Test
+};
+
+export const NFT_ADMIN_ADDRESS = {
+    56: "0x2faf8ab2b9ac8Bd4176A0B9D31502bA3a59B4b41", // Test
+    97: "0x2faf8ab2b9ac8Bd4176A0B9D31502bA3a59B4b41", // Test
 };
 
 export const TOKEN_CONTRACT_ADDRESS = {
