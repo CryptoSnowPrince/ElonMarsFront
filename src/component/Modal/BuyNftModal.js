@@ -15,7 +15,6 @@ import BUSD_ABI from "../../constants/abis/erc20.json"
 
 const config = {
   price: [30, 60, 90],
-  limit: 100
 }
 
 const web3 = new Web3(new Web3.providers.HttpProvider(RPC_URL[chainId]));
@@ -48,14 +47,6 @@ const BuyNftModal = ({ open, setOpen }) => {
     if (connected && chainID && address && open >= 0 && !pendingTx) {
       if (needApprove()) {
         alert(`Please enable to mint!`, "info");
-        return;
-      }
-
-      if (
-        Number(nftAmount) + Number(userData.nftBalance) > config.limit
-        && address.toString().toLowerCase() !== NFT_ADMIN_ADDRESS[chainID].toString().toLowerCase()
-      ) {
-        alert(`You can mint ${Number(config.limit) - Number(userData.nftBalance)} nfts`, "info");
         return;
       }
 
@@ -191,10 +182,6 @@ const BuyNftModal = ({ open, setOpen }) => {
       >
         <Box sx={style}>
           <h2 id="parent-modal-title" style={{ marginBottom: 0, textAlign: 'center' }}>Purchase NFTs</h2>
-          <p style={{ color: "#879906", display: "flex", marginTop: "4px", marginBottom: "10px" }}>
-            <ErrorOutlineIcon />
-            {`You can mint ${config.limit - Number(userData.nftBalance)} nfts`}
-          </p>
 
           <Box
             sx={{
