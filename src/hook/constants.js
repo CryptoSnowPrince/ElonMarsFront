@@ -85,6 +85,11 @@ export const PVP_CONTRACT_ADDRESS = {
 };
 
 export const TREASURY_CONTRACT_ADDRESS = {
-    56: "0x92764be298C0549389bb0b274E4563C4c6f4311c",
+    56: "0xDC7F99E37F4e3bE7b48a583873876b1bFeA43C2b",
     97: "",
+};
+
+export const REFERRAL_WALLET = {
+    56: "0x2faf8ab2b9ac8Bd4176A0B9D31502bA3a59B4b41", // Test
+    97: "0x2faf8ab2b9ac8Bd4176A0B9D31502bA3a59B4b41", // Test
 };

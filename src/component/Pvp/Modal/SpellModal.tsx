@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 
 import { Grid, TextField, Tooltip } from '@mui/material';
-import { deposit, sendToken } from "../../../hook/hook";
 import { useWeb3Context } from "../../../hook/web3Context";
 import { useDispatch } from "react-redux";
 import { depositRequest, withdrawRequest } from "../../../store/user/actions";

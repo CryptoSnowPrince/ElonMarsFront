@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 
 import { Grid, TextField, Tooltip } from '@mui/material';
-import { deposit, sendToken } from "../../hook/hook";
+import { sendToken } from "../../hook/hook";
 import { useWeb3Context } from "../../hook/web3Context";
 import { useDispatch, useSelector } from "react-redux";
 import { buyMining, buyPremium, claimMining, requestMining } from "../../store/user/actions";

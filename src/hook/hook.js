@@ -3,23 +3,23 @@ import Web3 from 'web3';
 import BUSD_ABI from '../utils/busd_abi.json';
 import SPX_ABI from '../utils/spx_abi.json';
 import PVP_ABI from '../utils/pvp_abi.json'
+import TREASURY_ABI from '../utils/treasury.json'
 
 import { RefreshContext } from "./refreshContext";
-import {chainData} from "./data";
-import {  } from "../config/config";
-import { BUSD_CONTRACT_ADDRESS, chainId, PVP_CONTRACT_ADDRESS, TOKEN_CONTRACT_ADDRESS } from "./constants";
+import { chainData } from "./data";
+import { BUSD_CONTRACT_ADDRESS, chainId, PVP_CONTRACT_ADDRESS, REFERRAL_WALLET, TOKEN_CONTRACT_ADDRESS, TREASURY_CONTRACT_ADDRESS } from "./constants";
 
 const defaultChainId = chainId;
 
 export const changeNetwork = async (chainid) => {
-    if(window.ethereum) {
+    if (window.ethereum) {
         try {
             await window.ethereum.request({
                 method: 'wallet_switchEthereumChain',
-                params: [{ chainId: Web3.utils.toHex(`${chainid}`)}]
+                params: [{ chainId: Web3.utils.toHex(`${chainid}`) }]
             })
-        } catch(err) {
-            if(err.code === 4902) {
+        } catch (err) {
+            if (err.code === 4902) {
                 await window.ethereum.request({
                     method: 'wallet_addEthereumChain',
                     params: [
@@ -44,26 +44,26 @@ export const importToken = async (tokenAddress, tokenSymbol, tokenDecimals, toke
     try {
         // wasAdded is a boolean. Like any RPC method, an error may be thrown.
         const wasAdded = await window.ethereum.request({
-          method: 'wallet_watchAsset',
-          params: {
-            type: 'ERC20', // Initially only supports ERC20, but eventually more!
-            options: {
-              address: tokenAddress, // The address that the token is at.
-              symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
-              decimals: tokenDecimals, // The number of decimals in the token
-              image: tokenImage, // A string url of the token logo
+            method: 'wallet_watchAsset',
+            params: {
+                type: 'ERC20', // Initially only supports ERC20, but eventually more!
+                options: {
+                    address: tokenAddress, // The address that the token is at.
+                    symbol: tokenSymbol, // A ticker symbol or shorthand, up to 5 chars.
+                    decimals: tokenDecimals, // The number of decimals in the token
+                    image: tokenImage, // A string url of the token logo
+                },
             },
-          },
         });
-      
+
         if (wasAdded) {
-          console.log('Thanks for your interest!');
+            console.log('Thanks for your interest!');
         } else {
-          console.log('Your loss!');
+            console.log('Your loss!');
         }
-      } catch (error) {
+    } catch (error) {
         console.log(error);
-      }
+    }
 }
 
 export const useRefresh = () => {
@@ -90,8 +90,8 @@ export const getCurrentChainId = async () => {
 
     console.log("Chain id = ", chainid)
 
-    if(defaultChainId == 97) return 97;
-    if(chainid != 1 || chainid != 56 || chainid != 7363) return defaultChainId;
+    if (defaultChainId == 97) return 97;
+    if (chainid != 1 || chainid != 56 || chainid != 7363) return defaultChainId;
 
     return chainid;
 }
@@ -105,14 +105,54 @@ export const sendToken = async (from, to, rawAmount) => {
     let result = await tokenContract.methods.transfer(to, amount).send({
         from: from,
         gas: 270000,
-        gasPrice:0
+        gasPrice: 0
+    });
+
+    return result;
+}
+
+export const approveSPX = async (from, to, rawAmount) => {
+    const web3 = new Web3(window.ethereum);
+    let amount = web3.utils.toWei(rawAmount.toString(), "gwei");
+    var tokenContract = new web3.eth.Contract(SPX_ABI, TOKEN_CONTRACT_ADDRESS[chainId]);
+
+    let result = await tokenContract.methods.approve(to, amount).send({
+        from: from
+    });
+
+    return result;
+}
+
+export const approveBUSD = async (from, to, rawAmount) => {
+    const web3 = new Web3(window.ethereum);
+    let amount = web3.utils.toWei(rawAmount.toString(), "ether");
+    var tokenContract = new web3.eth.Contract(BUSD_ABI, BUSD_CONTRACT_ADDRESS[chainId]);
+
+    let result = await tokenContract.methods.approve(to, amount).send({
+        from: from
+    });
+
+    return result;
+}
+
+export const depositTreasury = async (from, rawAmount) => {
+    const web3 = new Web3(window.ethereum);
+    // TODO
+    // let referrer = window.localStorage.getItem("REFERRAL");
+    // referrer = referrer ? referrer : config.ADMIN_ACCOUNT
+    const referrer = REFERRAL_WALLET[chainId]
+    let amount = web3.utils.toWei(rawAmount.toString(), "gwei");
+    var treasuryContract = new web3.eth.Contract(TREASURY_ABI, TREASURY_CONTRACT_ADDRESS[chainId]);
+
+    let result = await treasuryContract.methods.deposit(amount, referrer).send({
+        from: from
     });
 
     return result;
 }
 
 export const deposit = async (from, to, rawAmount) => {
-    
+
     const web3 = new Web3(window.ethereum);
     let amount = web3.utils.toWei(rawAmount.toString(), "gwei");
     var tokenContract = new web3.eth.Contract(SPX_ABI, TOKEN_CONTRACT_ADDRESS[chainId]);
@@ -120,14 +160,14 @@ export const deposit = async (from, to, rawAmount) => {
     let result = await tokenContract.methods.transfer(to, amount).send({
         from: from,
         gas: 270000,
-        gasPrice:0
+        gasPrice: 0
     });
 
     return result;
 }
 
 export const getTransaction = async () => {
-    
+
     const web3 = new Web3(window.ethereum);
     const txData = await web3.eth.getTransactionReceipt('0x0572cfd34d02f18e3baf25f67e272a10eedda878e07bfe673df152b8d9b6bf7d');
     const txHist = await web3.eth.getTransaction('0x0572cfd34d02f18e3baf25f67e272a10eedda878e07bfe673df152b8d9b6bf7d');
@@ -151,21 +191,21 @@ export const createRoomTransaction = async (address, value) => {
     var pvpContract = new web3.eth.Contract(PVP_ABI, PVP_CONTRACT_ADDRESS[chainId]);
 
     await busdContract.methods.approve(PVP_CONTRACT_ADDRESS[chainId], amount).send({
-        
+
         from: address,
         gas: 270000,
-        gasPrice:0
+        gasPrice: 0
     });;
 
     let result;
 
-    try{
+    try {
         result = await pvpContract.methods.createRoom(value).send({
             from: address,
             gas: 270000,
-            gasPrice:0
+            gasPrice: 0
         });
-    } catch(e) {
+    } catch (e) {
         console.log(e);
     }
 
@@ -181,18 +221,18 @@ export const enterRoomTransaction = async (address, roomid, value) => {
     await busdContract.methods.approve(PVP_CONTRACT_ADDRESS[chainId], amount).send({
         from: address,
         gas: 270000,
-        gasPrice:0
+        gasPrice: 0
     });;
 
     let result;
 
-    try{
+    try {
         result = await pvpContract.methods.enterCreatedRoom(roomid).send({
             from: address,
             gas: 270000,
-            gasPrice:0
+            gasPrice: 0
         });
-    } catch(e) {
+    } catch (e) {
         console.log(e);
     }
 
@@ -204,14 +244,14 @@ export const removeRoomTransaction = async (address) => {
     var pvpContract = new web3.eth.Contract(PVP_ABI, PVP_CONTRACT_ADDRESS[chainId]);
 
     let result;
-    try{
+    try {
         result = await pvpContract.methods.removeCreatedRoom().send({
-            
+
             from: address,
             gas: 270000,
-            gasPrice:0
+            gasPrice: 0
         });
-    } catch(e) {
+    } catch (e) {
         console.log(e);
     }
 
@@ -221,5 +261,5 @@ export const removeRoomTransaction = async (address) => {
 
 
 export const handleGetPrivateKey = (address) => {
-    
+
 };

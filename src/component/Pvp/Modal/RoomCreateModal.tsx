@@ -6,7 +6,7 @@ import { ethers } from "ethers";
 import {PVP_CONTRACT_ABI} from "../../../hook/abi/pvp_contract_abi";
 
 import { Grid, TextField, Tooltip } from '@mui/material';
-import { createRoomTransaction, deposit, sendToken } from "../../../hook/hook";
+import { createRoomTransaction } from "../../../hook/hook";
 import { useWeb3Context } from "../../../hook/web3Context";
 import { useDispatch } from "react-redux";
 import { depositRequest, withdrawRequest } from "../../../store/user/actions";
