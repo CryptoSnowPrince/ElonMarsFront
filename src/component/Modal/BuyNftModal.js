@@ -8,7 +8,7 @@ import { TextField } from '@mui/material';
 import { useWeb3Context } from "../../hook/web3Context";
 import { useDispatch } from "react-redux";
 import { onShowAlert } from "../../store/utiles/actions";
-import { BUSD_NFT_CONTRACT_ADDRESS, NFT_ADMIN_ADDRESS, NFT_CONTRACT_ADDRESS, RPC_URL, chainId } from "../../hook/constants";
+import { BUSD_CONTRACT_ADDRESS, NFT_ADMIN_ADDRESS, NFT_CONTRACT_ADDRESS, RPC_URL, chainId } from "../../hook/constants";
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import NFT_ABI from "../../constants/abis/nft.json"
 import BUSD_ABI from "../../constants/abis/erc20.json"
@@ -98,7 +98,7 @@ const BuyNftModal = ({ open, setOpen }) => {
       setPendingTx(true)
       try {
         const web3 = new Web3(window.ethereum);
-        var tokenContract = new web3.eth.Contract(BUSD_ABI, BUSD_NFT_CONTRACT_ADDRESS[chainID]);
+        var tokenContract = new web3.eth.Contract(BUSD_ABI, BUSD_CONTRACT_ADDRESS[chainID]);
 
         dispatch(onShowAlert("Pease wait while confirming", "info"));
         let transaction = await tokenContract.methods.approve(NFT_CONTRACT_ADDRESS[chainID], '10000000000000000000').send({
@@ -127,7 +127,7 @@ const BuyNftModal = ({ open, setOpen }) => {
       if (connected && chainID && address && open >= 0) {
         try {
           console.log('buyNftModal 1: ', connected, chainID, address, open)
-          const tokenContract = new web3.eth.Contract(BUSD_ABI, BUSD_NFT_CONTRACT_ADDRESS[chainID])
+          const tokenContract = new web3.eth.Contract(BUSD_ABI, BUSD_CONTRACT_ADDRESS[chainID])
           const nftContract = new web3.eth.Contract(NFT_ABI, NFT_CONTRACT_ADDRESS[chainID])
           const busdBalanceRaw = await tokenContract.methods.balanceOf(address).call();
           const nftBalance0 = await nftContract.methods.balanceOf(address, 0).call();
