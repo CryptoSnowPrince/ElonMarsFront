@@ -5,7 +5,9 @@ interface CardProps {
     action: any,
 }
 
-const earn = [4500, 9000, 15000]
+const earn0 = ['Common 80%', 'Common 75%', 'Common 60%']
+const earn1 = ['Uncommon 20%', 'Uncommon 20%', 'Uncommon 30%']
+const earn2 = ['', 'Rare 5%', 'Rare 10%']
 const NftCard = ({ id, action }: CardProps) => {
     return (
         <>
@@ -39,26 +41,52 @@ const NftCard = ({ id, action }: CardProps) => {
                     }}
                     onClick={e => action(id)}
                 >MINT</button>
-                <div style={{
-                    position: "absolute",
-                    width: "220px",
-                    height: "80px",
-                    paddingTop: "10px",
-                    paddingLeft: "20px",
-                    marginLeft: "220px",
-                    marginTop: "-590px",
-                    borderColor: "black",
-                    borderWidth: "10px",
-                    borderRadius: "10px",
-                    borderStyle: "outset",
-                    backgroundColor: "#b622b5",
-                    color: "white",
-                    fontSize: "24px",
-                    fontWeight: "400"
-                }}>
-                    <div>{`Earn: ${earn[id]} gh`}</div>
-                    <div>Time: 24h</div>
-                </div>
+                {id === 0 ?
+                    <div style={{
+                        position: "absolute",
+                        width: "220px",
+                        height: "80px",
+                        paddingTop: "15px",
+                        marginLeft: "220px",
+                        marginTop: "-590px",
+                        borderColor: "black",
+                        borderWidth: "10px",
+                        borderRadius: "10px",
+                        borderStyle: "outset",
+                        backgroundColor: "#b622b5",
+                        color: "white",
+                        fontSize: "16px",
+                        fontWeight: "400",
+                        textAlign: "center"
+                    }}>
+                        <div>Drop:</div>
+                        <div>{`${earn0[id]}`}</div>
+                        <div>{`${earn1[id]}`}</div>
+                    </div> :
+                    <div style={{
+                        position: "absolute",
+                        width: "220px",
+                        height: "90px",
+                        paddingTop: "5px",
+                        marginLeft: "220px",
+                        marginTop: "-590px",
+                        borderColor: "black",
+                        borderWidth: "10px",
+                        borderRadius: "10px",
+                        borderStyle: "outset",
+                        backgroundColor: "#b622b5",
+                        color: "white",
+                        fontSize: "16px",
+                        fontWeight: "400",
+                        textAlign: "center"
+                    }}>
+                        <div>Drop:</div>
+                        <div>{`${earn0[id]}`}</div>
+                        <div>{`${earn1[id]}`}</div>
+                        <div>{`${earn2[id]}`}</div>
+                    </div>
+                }
+
             </Box>
         </>
     );

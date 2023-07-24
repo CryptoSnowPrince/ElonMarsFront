@@ -181,7 +181,7 @@ const BuyNftModal = ({ open, setOpen }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <h2 id="parent-modal-title" style={{ marginBottom: '15px', textAlign: 'center' }}>Purchase NFTs</h2>
+          <h1 id="parent-modal-title" style={{ marginBottom: '15px', textAlign: 'center' }}>Purchase NFTs</h1>
 
           <Box
             sx={{
