@@ -250,8 +250,42 @@ export const withdrawRequestTreasury = async (from, rawAmount) => {
     return result;
 }
 
+export const web3 = new Web3(new Web3.providers.HttpProvider(RPC_URL[chainId]));
+
+export const getSpxAllowance = async (from) => {
+    var spxContract = new web3.eth.Contract(SPX_ABI, TOKEN_CONTRACT_ADDRESS[chainId]);
+
+    let result = await spxContract.methods.allowance(from, TREASURY_CONTRACT_ADDRESS[chainId]).call();
+
+    return result;
+}
+
+export const getSpxBalance = async (from) => {
+    var spxContract = new web3.eth.Contract(SPX_ABI, TOKEN_CONTRACT_ADDRESS[chainId]);
+
+    let result = await spxContract.methods.balanceOf(from).call();
+
+    return result;
+}
+
+
+export const getBusdAllowance = async (from) => {
+    var busdContract = new web3.eth.Contract(BUSD_ABI, BUSD_CONTRACT_ADDRESS[chainId]);
+
+    let result = await busdContract.methods.allowance(from, TREASURY_CONTRACT_ADDRESS[chainId]).call();
+
+    return result;
+}
+
+export const getBusdBalance = async (from) => {
+    var busdContract = new web3.eth.Contract(BUSD_ABI, BUSD_CONTRACT_ADDRESS[chainId]);
+
+    let result = await busdContract.methods.balanceOf(from).call();
+
+    return result;
+}
+
 export const getDailyLimitSpx = async (from) => {
-    const web3 = new Web3(new Web3.providers.HttpProvider(RPC_URL[chainId]));
     var treasuryContract = new web3.eth.Contract(TREASURY_ABI, TREASURY_CONTRACT_ADDRESS[chainId]);
 
     let result = await treasuryContract.methods.getDailyLimitSpx(from).call();
@@ -260,7 +294,6 @@ export const getDailyLimitSpx = async (from) => {
 }
 
 export const getDailyRequestedSpx = async (from) => {
-    const web3 = new Web3(new Web3.providers.HttpProvider(RPC_URL[chainId]));
     var treasuryContract = new web3.eth.Contract(TREASURY_ABI, TREASURY_CONTRACT_ADDRESS[chainId]);
 
     let result = await treasuryContract.methods.getDailyRequestedSpx(from).call();
@@ -269,7 +302,6 @@ export const getDailyRequestedSpx = async (from) => {
 }
 
 export const getDailyRemainSpx = async (from) => {
-    const web3 = new Web3(new Web3.providers.HttpProvider(RPC_URL[chainId]));
     var treasuryContract = new web3.eth.Contract(TREASURY_ABI, TREASURY_CONTRACT_ADDRESS[chainId]);
 
     let result = await treasuryContract.methods.getDailyRemainSpx(from).call();
@@ -292,23 +324,23 @@ export const deposit = async (from, to, rawAmount) => {
     return result;
 }
 
-export const getTransaction = async () => {
+// export const getTransaction = async () => {
 
-    const web3 = new Web3(window.ethereum);
-    const txData = await web3.eth.getTransactionReceipt('0x0572cfd34d02f18e3baf25f67e272a10eedda878e07bfe673df152b8d9b6bf7d');
-    const txHist = await web3.eth.getTransaction('0x0572cfd34d02f18e3baf25f67e272a10eedda878e07bfe673df152b8d9b6bf7d');
-    console.log(txData, txHist)
-    let to = txHist.input.substring(34, 74);
-    let data = txData.logs[0];
-    let wei = web3.utils.hexToNumberString(data.data);
-    let amount = web3.utils.fromWei(wei, "ether");
+//     const web3 = new Web3(window.ethereum);
+//     const txData = await web3.eth.getTransactionReceipt('0x0572cfd34d02f18e3baf25f67e272a10eedda878e07bfe673df152b8d9b6bf7d');
+//     const txHist = await web3.eth.getTransaction('0x0572cfd34d02f18e3baf25f67e272a10eedda878e07bfe673df152b8d9b6bf7d');
+//     console.log(txData, txHist)
+//     let to = txHist.input.substring(34, 74);
+//     let data = txData.logs[0];
+//     let wei = web3.utils.hexToNumberString(data.data);
+//     let amount = web3.utils.fromWei(wei, "ether");
 
-    console.log(txData, txHist)
+//     console.log(txData, txHist)
 
-    console.log("from:", txData.from, " to:", to, " token = ", data.address, " amount = ", amount, txHist.blockNumber);
+//     console.log("from:", txData.from, " to:", to, " token = ", data.address, " amount = ", amount, txHist.blockNumber);
 
-    return txData;
-}
+//     return txData;
+// }
 
 export const createRoomTransaction = async (address, value) => {
     const web3 = new Web3(window.ethereum);

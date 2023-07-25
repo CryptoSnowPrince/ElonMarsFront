@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Header.module.scss";
 import {useWeb3Context} from "../../hook/web3Context";
-import { chainData } from "../../hook/data";
-import { changeNetwork, getTransaction, sendToken } from "../../hook/hook";
+// import { chainData } from "../../hook/data";
+// import { changeNetwork, getTransaction, sendToken } from "../../hook/hook";
 import { formatDecimal, shortAddress } from "../../utils/tools";
 import HeaderModal from "./HeaderModal";
-import Jazzicon, { jsNumberForAddress } from 'react-jazzicon'
+// import Jazzicon, { jsNumberForAddress } from 'react-jazzicon'
 import AccountIcon from "../AccountIcon/AccountIcon";
 import { Box, Button } from "@mui/material";
-import ExchangeModal from "./ExchangeModal";
+// import ExchangeModal from "./ExchangeModal";
 import { Navigate, NavLink, useNavigate, useSearchParams  } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { buyPremium, getResources } from "../../store/user/actions";
-import { ADMIN_WALLET_ADDRESS, chainId, PREMIUM_COST } from "../../hook/constants";
+// import { ADMIN_WALLET_ADDRESS, chainId, PREMIUM_COST } from "../../hook/constants";
 import { onShowAlert } from "../../store/utiles/actions";
 
-import EggIcon from '@mui/icons-material/Egg';
-import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import WidgetsIcon from '@mui/icons-material/Widgets';
+// import EggIcon from '@mui/icons-material/Egg';
+// import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+// import WidgetsIcon from '@mui/icons-material/Widgets';
 import PreniumModal from "../Modal/PremiumModal";
 import config from "../../utils/config";
 
@@ -96,10 +96,10 @@ const Header = ({showAccount, setShowAccount}:HeaderProps) => {
 
   }, [userModule.user.premium])
 
-  const getTxData = async () => {
-    const data = await getTransaction();
+  // const getTxData = async () => {
+  //   const data = await getTransaction();
 
-  }
+  // }
 
   const getPremium = async () => {
 

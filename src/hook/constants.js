@@ -4,6 +4,10 @@ export const chainId = 56; // Main
 // export const LAND_COST = 0.01;
 
 // export const chainId = 56;
+
+export const MIN_DEPOSIT = 320; // 320 SPX
+export const MIN_WITHDRAW = 30; // 30 SPX
+
 export const PREMIUM_COST = 15; // 50
 
 export const LAND_COST = [4320, 1000, 3240] ;
@@ -34,7 +38,6 @@ export const POWER_PLANT = {
     REQUEST: 3000,
     TIMER: 24*60*60,
 }
-
 
 export const STAKE_TIMER = 3 * 60 * 60;
 export const MINING_TIMER = 24 * 60 * 60;
