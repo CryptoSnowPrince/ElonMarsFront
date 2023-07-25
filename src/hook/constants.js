@@ -10,33 +10,33 @@ export const MIN_WITHDRAW = 30; // 30 SPX
 
 export const PREMIUM_COST = 15; // 50
 
-export const LAND_COST = [4320, 1000, 3240] ;
+export const LAND_COST = [4320, 1000, 3240];
 
 export const DEFAULT_MINE = {
-    COST: chainId==97 ? 1 : 8100,
-    CLAIM: chainId==97 ? 1 : 3000,
-    REQUEST: chainId==97 ? 1 : 300,
-    TIMER: 24*60*60,
+    COST: chainId === 97 ? 1 : 8100,
+    CLAIM: chainId === 97 ? 1 : 3000,
+    REQUEST: chainId === 97 ? 1 : 300,
+    TIMER: 24 * 60 * 60,
 }
 
 export const GOLD_MINE = {
-    COST: chainId==97 ? 1 : 5040,
+    COST: chainId === 97 ? 1 : 5040,
     CLAIM: 300,
     REQUEST: 20,
-    TIMER: 3*60*60,
+    TIMER: 3 * 60 * 60,
 }
 export const URANIUM_MINE = {
-    COST: chainId==97 ? 1 : 6700,
+    COST: chainId === 97 ? 1 : 6700,
     CLAIM: 400,
     REQUEST: 30,
-    TIMER: 3*60*60,
+    TIMER: 3 * 60 * 60,
 }
 
 export const POWER_PLANT = {
-    COST: chainId==97 ? 1 : 40000 ,
+    COST: chainId === 97 ? 1 : 40000,
     CLAIM: 9000,
     REQUEST: 3000,
-    TIMER: 24*60*60,
+    TIMER: 24 * 60 * 60,
 }
 
 export const STAKE_TIMER = 3 * 60 * 60;

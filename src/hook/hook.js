@@ -89,8 +89,8 @@ export const getCurrentChainId = async () => {
 
     console.log("Chain id = ", chainid)
 
-    if (defaultChainId == 97) return 97;
-    if (chainid != 1 || chainid != 56 || chainid != 7363) return defaultChainId;
+    if (defaultChainId === 97) return 97;
+    if (chainid !== 1 || chainid !== 56 || chainid !== 7363) return defaultChainId;
 
     return chainid;
 }
