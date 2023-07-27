@@ -2,7 +2,7 @@ import React, { useState, useContext, useMemo, useCallback, useEffect } from "re
 import Web3Modal from "web3modal";
 import { StaticJsonRpcProvider, Web3Provider } from "@ethersproject/providers";
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import { changeNetwork, getCurrentChainId } from "./hook.js";
+import { changeNetwork, getCurrentChainId, web3static } from "./hook.js";
 import { ethers } from "ethers";
 
 import { chainId, RPC_URL } from "./constants.js";
@@ -21,8 +21,10 @@ const web3Modal = new Web3Modal({
       package: WalletConnectProvider,
       options: {
         rpc: {
-          1: defaultChainRPC,
-          3: defaultChainRPC,
+          // 1: defaultChainRPC,
+          // 3: defaultChainRPC,
+          56: RPC_URL[56],
+          // 97: RPC_URL[97],
         },
       },
     },
@@ -49,6 +51,21 @@ export const useAddress = () => {
   return address;
 };
 
+export const useInfo = () => {
+  const { address } = useWeb3Context();
+
+  const [data, setData] = useState({
+
+  })
+  // web3static
+  return data;
+}
+
+export const useNeedApprove = (amount) => {
+  const { address } = useWeb3Context();
+  // web3static
+}
+
 export const Web3ContextProvider = ({ children }) => {
   const [connected, setConnected] = useState(false);
   const [chainID, setChainID] = useState(defaultChainId);
@@ -60,7 +77,7 @@ export const Web3ContextProvider = ({ children }) => {
     if (!web3Modal.cachedProvider) return false;
     return true;
   };
-  
+
   const subscribeProvider = useCallback((provider) => {
     setProvider(provider);
 
@@ -71,12 +88,12 @@ export const Web3ContextProvider = ({ children }) => {
     provider.on("accountsChanged", (accounts) => {
       setAddress(accounts[0]);
     });
-    provider.on("chainChanged", async(chainId) => {
+    provider.on("chainChanged", async (chainId) => {
       const isValid = _checkNetwork(chainId);
 
       console.log("ChangeChange", chainId);
 
-      if(!isValid) {
+      if (!isValid) {
         setChainID(Number(chainId));
         changeNetwork();
       }
@@ -136,7 +153,7 @@ export const Web3ContextProvider = ({ children }) => {
     setAddress("");
   }, [provider, web3Modal, connected]);
 
-  const setCurrentChain = async () =>{
+  const setCurrentChain = async () => {
     let _chain = await getCurrentChainId();
     setChainID(Number(_chain));
   }

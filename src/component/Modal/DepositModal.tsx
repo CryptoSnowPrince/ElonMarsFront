@@ -4,12 +4,21 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 
 import { Grid, TextField } from '@mui/material';
-import { deposit, getDailyRemainSpx, sendToken, web3 } from "../../hook/hook";
+import { deposit, getDailyRemainSpx, sendToken, web3static } from "../../hook/hook";
 import { useWeb3Context } from "../../hook/web3Context";
 import { useDispatch } from "react-redux";
 import { depositRequest, withdrawRequest } from "../../store/user/actions";
 import { onShowAlert } from "../../store/utiles/actions";
-import { ADMIN_WALLET_ADDRESS, chainId } from "../../hook/constants";
+import {
+  ADMIN_WALLET_ADDRESS,
+  GBAKS_SPX_RATE,
+  MIN_DEPOSIT,
+  MIN_WITHDRAW,
+  WITHDRAW_FEE,
+  WITHDRAW_LIMIT,
+  WITHDRAW_LIMIT_PREMIUM,
+  chainId
+} from "../../hook/constants";
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
 interface Props {
@@ -27,9 +36,9 @@ const DepositModal = ({ open, setOpen, resource, egg, onExchange, onExchangeEgg 
   const [availableSwap, setAvailableSwap] = useState('0');
   useEffect(() => {
     const fetchData = async () => {
-      if (web3.utils.isAddress(address)) {
+      if (web3static.utils.isAddress(address)) {
         const res = await getDailyRemainSpx(address)
-        setAvailableSwap(web3.utils.fromWei(res, "gwei"));
+        setAvailableSwap(web3static.utils.fromWei(res, "gwei"));
       }
     }
     fetchData()
@@ -60,8 +69,8 @@ const DepositModal = ({ open, setOpen, resource, egg, onExchange, onExchangeEgg 
   };
 
   const onDeposit = async () => {
-    if (spxAmount < 320) {
-      alert("minimal withdraw amount is 320SPX");
+    if (spxAmount < MIN_DEPOSIT) {
+      alert(`minimal withdraw amount is ${MIN_DEPOSIT}SPX`);
       return;
     }
     dispatch(onShowAlert("Pease wait while confirming", "info"));
@@ -77,12 +86,12 @@ const DepositModal = ({ open, setOpen, resource, egg, onExchange, onExchangeEgg 
   }
 
   const onWithdraw = async () => {
-    if (gbaksAmount < 300) {
-      alert("minimal withdraw amount is 300Gbaks");
+    if (gbaksAmount < GBAKS_SPX_RATE * MIN_WITHDRAW) {
+      alert(`minimal withdraw amount is ${GBAKS_SPX_RATE * MIN_WITHDRAW}Gbaks`);
       return;
     }
 
-    if (Number(availableSwap) * 10 < gbaksAmount) {
+    if (Number(availableSwap) * GBAKS_SPX_RATE < gbaksAmount) {
       alert("Swap amount is overflow the daily limit!");
       return;
     }
@@ -126,9 +135,13 @@ const DepositModal = ({ open, setOpen, resource, egg, onExchange, onExchangeEgg 
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <h2 id="parent-modal-title" style={{ marginBottom: 0 }}>Deposit and Withdraw</h2>
-          <p style={{ color: "#879906", display: "flex", marginTop: "4px", marginBottom: "10px" }}><ErrorOutlineIcon />You can withdraw SPX: $5 a day and $10 if you have premium</p>
-
+          <h2 id="parent-modal-title" style={{ marginBottom: 0 }}>
+            {`Deposit and Withdraw`}
+          </h2>
+          <p style={{ color: "#879906", display: "flex", marginTop: "4px", marginBottom: "10px" }}>
+            <ErrorOutlineIcon />
+            {`You can withdraw SPX: $${WITHDRAW_LIMIT} a day and $${WITHDRAW_LIMIT_PREMIUM} if you have premium`}
+          </p>
           <Grid container>
             <Grid item xs={12} sm={6} md={6} sx={{ marginBottom: "10px" }}>
               <Box
@@ -147,10 +160,14 @@ const DepositModal = ({ open, setOpen, resource, egg, onExchange, onExchangeEgg 
                   type="number"
                   onChange={onChangeAmount}
                 />
-                <p>You will receive {Number(spxAmount)} Gbaks</p>
+                <p>{`You will receive ${Number(spxAmount)} Gbaks`}</p>
 
-                <p style={{ color: "#879906", display: "flex", marginTop: "2px" }}><ErrorOutlineIcon /> Min deposit: 320 SPX.</p>
-                <Button variant="contained" color='primary' onClick={e => onDeposit()} >Deposit</Button>
+                <p style={{ color: "#879906", display: "flex", marginTop: "2px" }}><ErrorOutlineIcon />
+                  {`Min deposit: ${MIN_DEPOSIT} SPX.`}
+                </p>
+                <Button variant="contained" color='primary' onClick={e => onDeposit()} >
+                  {`Deposit`}
+                </Button>
               </Box>
             </Grid>
             <Grid item xs={12} sm={6} md={6} sx={{ marginBottom: "10px" }}>
@@ -170,14 +187,18 @@ const DepositModal = ({ open, setOpen, resource, egg, onExchange, onExchangeEgg 
                   type="number"
                   onChange={onChangeEggAmount}
                 />
-                <p>You will receive {Math.floor(gbaksAmount / 10)} SPX</p>
+                <p>You will receive {Math.floor(gbaksAmount / GBAKS_SPX_RATE)} SPX</p>
                 <p style={{ color: "#879906", display: "flex", marginTop: "2px" }}>
-                  <ErrorOutlineIcon /> Available: {Number.parseFloat(availableSwap).toFixed(1)} SPX
+                  <ErrorOutlineIcon />
+                  {`Available: ${Number.parseFloat(availableSwap).toFixed(1)} SPX`}
                 </p>
-                <Button variant="contained" color='primary' onClick={e => onWithdraw()} >Withdraw</Button>
+                <Button variant="contained" color='primary' onClick={e => onWithdraw()} >
+                  {`Withdraw`}
+                </Button>
               </Box>
-              <p style={{ color: "#879906", display: "flex", marginTop: "12px" }}><ErrorOutlineIcon /> withdraw fee is 1 BUSD</p>
-
+              <p style={{ color: "#879906", display: "flex", marginTop: "12px" }}>
+                <ErrorOutlineIcon /> {`withdraw fee is ${WITHDRAW_FEE} BUSD`}
+              </p>
             </Grid>
           </Grid>
         </Box>

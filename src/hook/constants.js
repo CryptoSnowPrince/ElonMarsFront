@@ -7,6 +7,11 @@ export const chainId = 56; // Main
 
 export const MIN_DEPOSIT = 320; // 320 SPX
 export const MIN_WITHDRAW = 30; // 30 SPX
+export const GBAKS_SPX_RATE = 10; // 10 Gbaks = 1 SPX
+export const SPX_GBAKS_RATE = 1; // 1 SPX = 1 Gbaks
+export const WITHDRAW_LIMIT = 5; // $5
+export const WITHDRAW_LIMIT_PREMIUM = 10; // $10
+export const WITHDRAW_FEE = 1; // 1 BUSD
 
 export const PREMIUM_COST = 15; // 50
 
