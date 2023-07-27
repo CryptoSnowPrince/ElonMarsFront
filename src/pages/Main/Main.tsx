@@ -399,14 +399,29 @@ const Main = ({ showAccount, setShowAccount }: MainProps) => {
                             </Button> :
                             <>
                               {
-                                item.timer != 0 ? <Button sx={{ padding: "12px 4px", backgroundColor: "#736b6b", color: "white !important" }} variant="outlined" disabled>
-                                  {showMinutes(item.timer)}
-                                </Button> :
-                                  <Button sx={{ padding: "12px 4px" }} variant="contained" color='success' onClick={e => onClaimBird(e, index)} >Claim</Button>
+                                item.timer !== 0 ?
+                                  <Button
+                                    sx={{
+                                      padding: "12px 4px",
+                                      backgroundColor: "#736b6b",
+                                      color: "white !important"
+                                    }}
+                                    variant="outlined"
+                                    disabled
+                                  >
+                                    {showMinutes(item.timer)}
+                                  </Button> :
+                                  <Button
+                                    sx={{ padding: "12px 4px" }}
+                                    variant="contained"
+                                    color='success'
+                                    onClick={e => onClaimBird(e, index)}
+                                  >
+                                    Claim
+                                  </Button>
                               }
                             </>)
                       }
-
                     </Box>
                     {/* {item.item != 0 && <Box sx={{
                         position:"absolute",
