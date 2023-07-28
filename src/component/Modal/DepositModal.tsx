@@ -21,6 +21,7 @@ import {
   web3static
 } from "../../hook/constants";
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import api from '../../utils/callApi';
 
 interface Props {
   open: any;
@@ -36,17 +37,17 @@ const DepositModal = ({ open, setOpen, resource, egg, onExchange, onExchangeEgg 
   const { address } = useWeb3Context();
   const [refresh, setRefresh] = useState(false);
   const userInfo = useUserInfo(refresh);
-  const [availableSwap, setAvailableSwap] = useState('0');
+  const [availableSwap, setAvailableSwap] = useState(0);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (web3static.utils.isAddress(address)) {
-        const res = await getDailyRemainSpx(address)
-        setAvailableSwap(web3static.utils.fromWei(res, "gwei"));
-      }
-    }
-    fetchData()
-  }, [open, address])
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     if (web3static.utils.isAddress(address)) {
+  //       const res = await getDailyRemainSpx(address)
+  //       setAvailableSwap(web3static.utils.fromWei(res, "gwei"));
+  //     }
+  //   }
+  //   fetchData()
+  // }, [open, address])
 
   const dispatch = useDispatch<any>();
 
@@ -130,6 +131,21 @@ const DepositModal = ({ open, setOpen, resource, egg, onExchange, onExchangeEgg 
     pb: 1
   };
 
+  const updateAvailableSwap = async () => {
+    let res = await api(`user/withdraw-limit`, "post", {
+      walletAddress:address,
+    });
+
+    setAvailableSwap(Math.floor(res.count));
+  }
+
+  useEffect(() => {
+    if(open) {
+      setAvailableSwap(0);
+      updateAvailableSwap();
+    }
+  }, [open]);
+
   return (
     <>
       <Modal
@@ -194,7 +210,7 @@ const DepositModal = ({ open, setOpen, resource, egg, onExchange, onExchangeEgg 
                 <p>You will receive {Math.floor(gbaksAmount / GBAKS_SPX_RATE)} SPX</p>
                 <p style={{ color: "#879906", display: "flex", marginTop: "2px" }}>
                   <ErrorOutlineIcon />
-                  {`Available: ${Number.parseFloat(availableSwap).toFixed(1)} SPX`}
+                  {`Available: ${Number(availableSwap).toFixed(1)} SPX`}
                 </p>
                 <Button variant="contained" color='primary' onClick={e => onWithdraw()} >
                   {`Withdraw`}
