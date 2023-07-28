@@ -2,11 +2,20 @@ import React, { useState, useContext, useMemo, useCallback, useEffect } from "re
 import Web3Modal from "web3modal";
 import { StaticJsonRpcProvider, Web3Provider } from "@ethersproject/providers";
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import { changeNetwork, getCurrentChainId, web3static } from "./hook.js";
-import { ethers } from "ethers";
+import { changeNetwork, getCurrentChainId } from "./hook.js";
 
-import { chainId, RPC_URL } from "./constants.js";
-
+import {
+  chainId,
+  web3static,
+  RPC_URL,
+  MULTICALL_CONTRACT_ADDRESS,
+  REFETCH_INTERVAL,
+  TOKEN_CONTRACT_ADDRESS,
+  BUSD_CONTRACT_ADDRESS,
+  TREASURY_CONTRACT_ADDRESS,
+} from "./constants.js";
+import Multicall from "@dopex-io/web3-multicall";
+import ERC20_ABI from "../constants/abis/erc20.json"
 
 const defaultChainId = chainId;
 const defaultChainRPC = RPC_URL[chainId];
@@ -33,6 +42,16 @@ const web3Modal = new Web3Modal({
 
 const Web3Context = React.createContext(null);
 
+export const MulticallContractWeb3 = () => {
+  const multicallAddress = MULTICALL_CONTRACT_ADDRESS[chainId];
+  const multicall = new Multicall({
+    multicallAddress,
+    provider: defaultChainRPC
+  });
+
+  return multicall;
+};
+
 export const useWeb3Context = () => {
   const web3Context = useContext(Web3Context);
   if (!web3Context) {
@@ -51,13 +70,125 @@ export const useAddress = () => {
   return address;
 };
 
-export const useInfo = () => {
+export const useUserInfo = (forceRefresh) => {
   const { address } = useWeb3Context();
+  const mcContract = MulticallContractWeb3()
+  const busdContract = new web3static.eth.Contract(ERC20_ABI, BUSD_CONTRACT_ADDRESS[chainId]);
+  const spxContract = new web3static.eth.Contract(ERC20_ABI, TOKEN_CONTRACT_ADDRESS[chainId]);
 
   const [data, setData] = useState({
-
+    spxBalance: 0,
+    spxAllowance: 0,
+    busdBalance: 0,
+    busdAllowance: 0,
   })
-  // web3static
+
+  const [refetch, setRefetch] = useState(false)
+
+  useEffect(() => {
+    const timerID = setInterval(() => {
+      setRefetch((prevData) => {
+        return !prevData;
+      })
+    }, REFETCH_INTERVAL);
+
+    return () => {
+      clearInterval(timerID);
+    };
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (address && web3static.utils.isAddress(address)) {
+        const fetchArray = [
+          spxContract.methods.balanceOf(address),
+          spxContract.methods.allowance(address, TREASURY_CONTRACT_ADDRESS[chainId]),
+          busdContract.methods.balanceOf(address),
+          busdContract.methods.allowance(address, TREASURY_CONTRACT_ADDRESS[chainId]),
+        ]
+        try {
+          const data = await mcContract.aggregate(
+            fetchArray
+          );
+          console.log('useInfo: data', data)
+        } catch (error) {
+          console.log('useInfo: error', error)
+        }
+
+        setData({
+          spxBalance: 0,
+          spxAllowance: 0,
+          busdBalance: 0,
+          busdAllowance: 0,
+        })
+      }
+    };
+    fetchData();
+    // eslint-disable-next-line
+  }, [address, refetch, forceRefresh])
+
+  return data;
+}
+
+export const useInfo = (forceRefresh) => {
+  const { address } = useWeb3Context();
+  const mcContract = MulticallContractWeb3()
+  const busdContract = new web3static.eth.Contract(ERC20_ABI, BUSD_CONTRACT_ADDRESS[chainId]);
+  const spxContract = new web3static.eth.Contract(ERC20_ABI, TOKEN_CONTRACT_ADDRESS[chainId]);
+
+  const [data, setData] = useState({
+    spxBalance: 0,
+    spxAllowance: 0,
+    busdBalance: 0,
+    busdAllowance: 0,
+  })
+
+  const [refetch, setRefetch] = useState(false)
+
+  useEffect(() => {
+    const timerID = setInterval(() => {
+      setRefetch((prevData) => {
+        return !prevData;
+      })
+    }, REFETCH_INTERVAL);
+
+    return () => {
+      clearInterval(timerID);
+    };
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (address && web3static.utils.isAddress(address)) {
+        const fetchArray = [
+          spxContract.methods.balanceOf(address),
+          spxContract.methods.allowance(address, TREASURY_CONTRACT_ADDRESS[chainId]),
+          busdContract.methods.balanceOf(address),
+          busdContract.methods.allowance(address, TREASURY_CONTRACT_ADDRESS[chainId]),
+        ]
+        try {
+          const data = await mcContract.aggregate(
+            fetchArray
+          );
+          console.log('useInfo: data', data)
+        } catch (error) {
+          console.log('useInfo: error', error)
+        }
+
+        setData({
+          spxBalance: 0,
+          spxAllowance: 0,
+          busdBalance: 0,
+          busdAllowance: 0,
+        })
+      }
+    };
+    fetchData();
+    // eslint-disable-next-line
+  }, [address, refetch, forceRefresh])
+
   return data;
 }
 

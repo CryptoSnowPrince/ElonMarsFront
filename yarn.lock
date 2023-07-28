@@ -1193,6 +1193,11 @@
   resolved "https://registry.npmjs.org/@csstools/selector-specificity/-/selector-specificity-2.0.2.tgz"
   integrity sha512-IkpVW/ehM1hWKln4fCA3NzJU8KwD+kIOvPZA4cqxoJHtE21CCzjyp+Kxbu0i5I4tBNOlXPL9mjwnWlL0VEG4Fg==
 
+"@dopex-io/web3-multicall@^0.1.9":
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/@dopex-io/web3-multicall/-/web3-multicall-0.1.9.tgz#da609bc4a5b8b821d2a5c50a38fb2d5c10c6cb8c"
+  integrity sha512-oLs2x0bdBTvrY83ZzO4v1PXf1If475qoctS5mMSxDtuBwwSd7N8kv/BR+liZF++5r/f+TAfbNJbqsH8NrtQh0w==
+
 "@emotion/babel-plugin@^11.10.0":
   version "11.10.2"
   resolved "https://registry.npmjs.org/@emotion/babel-plugin/-/babel-plugin-11.10.2.tgz"

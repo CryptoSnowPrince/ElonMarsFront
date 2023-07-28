@@ -4,8 +4,8 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 
 import { Grid, TextField } from '@mui/material';
-import { deposit, getDailyRemainSpx, sendToken, web3static } from "../../hook/hook";
-import { useWeb3Context } from "../../hook/web3Context";
+import { deposit, getDailyRemainSpx, sendToken } from "../../hook/hook";
+import { useWeb3Context, useUserInfo, useInfo } from "../../hook/web3Context";
 import { useDispatch } from "react-redux";
 import { depositRequest, withdrawRequest } from "../../store/user/actions";
 import { onShowAlert } from "../../store/utiles/actions";
@@ -17,7 +17,8 @@ import {
   WITHDRAW_FEE,
   WITHDRAW_LIMIT,
   WITHDRAW_LIMIT_PREMIUM,
-  chainId
+  chainId,
+  web3static
 } from "../../hook/constants";
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
@@ -33,7 +34,10 @@ interface Props {
 const DepositModal = ({ open, setOpen, resource, egg, onExchange, onExchangeEgg }: Props) => {
 
   const { address } = useWeb3Context();
+  const [refresh, setRefresh] = useState(false);
+  const userInfo = useUserInfo(refresh);
   const [availableSwap, setAvailableSwap] = useState('0');
+
   useEffect(() => {
     const fetchData = async () => {
       if (web3static.utils.isAddress(address)) {

@@ -281,8 +281,8 @@ const Area = ({
 
                   // onClick={(e)=>setItem(item)}
                 >
-                  {item == 1 && <img src='/images/diamond_1.png'/>}
-                  {item == 2 && <img src='/images/diamond_2.png'/>}
+                  {item === 1 && <img src='/images/diamond_1.png' alt='diamond'/>}
+                  {item === 2 && <img src='/images/diamond_2.png' alt='diamond'/>}
                   <Box sx={{textAlign:"center"}}>
                     <Button 
                       sx={{

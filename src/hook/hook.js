@@ -3,11 +3,19 @@ import Web3 from 'web3';
 import BUSD_ABI from '../utils/busd_abi.json';
 import SPX_ABI from '../utils/spx_abi.json';
 import PVP_ABI from '../utils/pvp_abi.json'
-import TREASURY_ABI from '../utils/treasury.json'
+import TREASURY_ABI from '../constants/abis/treasury.json'
 
 import { RefreshContext } from "./refreshContext";
 import { chainData } from "./data";
-import { BUSD_CONTRACT_ADDRESS, chainId, PVP_CONTRACT_ADDRESS, REFERRAL_WALLET, RPC_URL, TOKEN_CONTRACT_ADDRESS, TREASURY_CONTRACT_ADDRESS } from "./constants";
+import {
+    BUSD_CONTRACT_ADDRESS,
+    chainId,
+    PVP_CONTRACT_ADDRESS,
+    REFERRAL_WALLET,
+    TOKEN_CONTRACT_ADDRESS,
+    TREASURY_CONTRACT_ADDRESS,
+    web3static
+} from "./constants";
 
 const defaultChainId = chainId;
 
@@ -249,8 +257,6 @@ export const withdrawRequestTreasury = async (from, rawAmount) => {
 
     return result;
 }
-
-export const web3static = new Web3(new Web3.providers.HttpProvider(RPC_URL[chainId]));
 
 export const getSpxAllowance = async (from) => {
     var spxContract = new web3static.eth.Contract(SPX_ABI, TOKEN_CONTRACT_ADDRESS[chainId]);

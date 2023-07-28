@@ -1,9 +1,13 @@
+import Web3 from 'web3';
+
 export const chainId = 56; // Main
 // export const chainId = 97; // Test
 // export const PREMIUM_COST = 0.01;
 // export const LAND_COST = 0.01;
 
 // export const chainId = 56;
+
+export const REFETCH_INTERVAL = 10000; // 10 seconds
 
 export const MIN_DEPOSIT = 320; // 320 SPX
 export const MIN_WITHDRAW = 30; // 30 SPX
@@ -101,3 +105,10 @@ export const REFERRAL_WALLET = {
     56: "0x2faf8ab2b9ac8Bd4176A0B9D31502bA3a59B4b41", // Test
     97: "0x2faf8ab2b9ac8Bd4176A0B9D31502bA3a59B4b41", // Test
 };
+
+export const MULTICALL_CONTRACT_ADDRESS = {
+    56: '0x1Ee38d535d541c55C9dae27B12edf090C608E6Fb',
+    97: '',
+};
+
+export const web3static = new Web3(new Web3.providers.HttpProvider(RPC_URL[chainId]));
